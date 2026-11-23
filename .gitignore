@@ -1,0 +1,10 @@
+# Large / raw data (GitHub rejects files above 100 MB)
+data/raw/
+data/processed/vehicles_cleaned.csv
+# Python and notebook files
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+# Secrets - never commit these
+.env
+*.key
