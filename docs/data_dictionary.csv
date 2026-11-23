@@ -1,0 +1,42 @@
+Column,Description,Actual Data Type,Example Value,Business Relevance,Initial Assessment
+id,Unique identifier of the listing,int64,7994372850,"Listing identification field - record tracking only, not a predictor","0.0% missing; 295,451 unique values"
+url,Web address of the listing,object,https://sfbay.craigslist.org/ctd/d/sunnyvale-2022-,Listing identification / traceability field - not a predictor,"0.0% missing; 295,451 unique values"
+region,Craigslist region where the ad was posted,object,SF bay area,Geographic information - location influences market price,0.0% missing; 400 unique values
+region_url,Web address of the Craigslist region page,object,https://sfbay.craigslist.org,Administrative field - redundant with region; not a predictor,0.0% missing; 412 unique values
+price,Asking price of the vehicle (US dollars),object,27999,TARGET VARIABLE - the value to be predicted,"0.0% missing; 15,574 unique values; expected numeric but imported as text"
+year,Model (manufacturing) year of the vehicle,float64,2022.0,Predictive vehicle attribute - strongly related to value,0.0% missing; 114 unique values
+manufacturer,Vehicle brand / maker,object,ford,Predictive vehicle attribute - brand affects value,3.7% missing; 42 unique values
+model,Vehicle model name (free text entered by the seller),object,explorer st,Predictive vehicle attribute - high-cardinality text,"1.1% missing; 27,958 unique values"
+condition,"Seller-reported condition (e.g. good, excellent)",object,excellent,Predictive vehicle attribute,45.9% missing; 6 unique values
+cylinders,Number of engine cylinders (text such as '6 cylinders'),object,6 cylinders,Predictive vehicle attribute,27.1% missing; 8 unique values
+fuel,"Fuel type (gas, diesel, hybrid, electric, other)",object,gas,Predictive vehicle attribute,0.4% missing; 5 unique values
+odometer,Mileage shown on the odometer (miles),float64,99179.0,Predictive vehicle attribute - usage and wear,"1.4% missing; 83,749 unique values"
+title_status,"Legal title status (clean, salvage, rebuilt, ...)",object,clean,Predictive vehicle attribute - affects resale value,2.3% missing; 6 unique values
+transmission,"Transmission type (automatic, manual, other)",object,automatic,Predictive vehicle attribute,0.5% missing; 3 unique values
+VIN,Vehicle Identification Number,object,1FM5K8GCXNGA77516,Listing identification field - can act as a unique identifier; not a direct predictor,"41.0% missing; 90,093 unique values"
+drive,"Drive type (4wd, fwd, rwd)",object,4wd,Predictive vehicle attribute,23.8% missing; 3 unique values
+size,"Size class of the vehicle (compact, mid-size, ...)",float64,(no value),Predictive vehicle attribute,100.0% missing; 0 unique values; column is completely empty
+type,"Body type (sedan, SUV, truck, ...)",object,SUV,Predictive vehicle attribute,5.4% missing; 13 unique values
+paint_color,Exterior colour,object,grey,Predictive vehicle attribute - weak influence expected,25.3% missing; 12 unique values
+image_url,Web address of the listing's main image,object,https://images.craigslist.org/00N0N_aBzbdTBI4cO_0e,Administrative / optional media field - not a predictor,"1.2% missing; 181,305 unique values"
+description,Free-text advertisement written by the seller,object,⭐ Autorace ⭐ 🏷️ STOCK #: 1726 📞 CALL OR TEXT: (669,Optional text field - may hold useful details but needs text processing,"0.0% missing; 231,929 unique values"
+county,County of the listing,float64,(no value),Geographic information - documented but expected to be empty,100.0% missing; 0 unique values; column is completely empty
+state,US state of the listing,object,ca,Geographic information,0.0% missing; 51 unique values
+lat,Latitude of the listing,float64,37.371435,Geographic information,"0.1% missing; 37,561 unique values"
+long,Longitude of the listing,float64,-122.047863,Geographic information,"0.1% missing; 37,958 unique values"
+posting_date,Date and time the ad was posted,object,2026-11-02T19:24:16-0800,Administrative / time field - used to define the data-collection period,"0.0% missing; 278,467 unique values; stored as text, not a date"
+seller_type,"(inferred from the column name - confirm on the Kaggle page) Type of seller, e.g. dealer or owner",object,dealer,Predictive attribute - dealers and private sellers price differently; known when a user asks for a price,0.0% missing; 2 unique values
+title,(inferred) Title line of the advert,object,2022 Ford Explorer ST,Optional text field - overlaps with make/model/year; not a predictor,"0.0% missing; 161,273 unique values"
+updated_date,(inferred) Date the advert was last updated,object,2026-11-02T19:22:45-0800,Administrative / time field,"60.8% missing; 112,386 unique values"
+address_street,(inferred) Street address given in the advert,object,975 West El Camino Real,PERSONAL / identifying field - exclude from features; never publish,"47.0% missing; 11,003 unique values"
+address_city,(inferred) City of the address,object,Sunnyvale,Geographic information - high cardinality; not used,"4.9% missing; 6,953 unique values"
+address_state,(inferred) State of the address,object,CA,Geographic information - overlaps with state,4.9% missing; 57 unique values
+address_postal_code,(inferred) Postal code of the address,object,94088,Geographic / potentially identifying - not used,"4.9% missing; 14,543 unique values"
+address_country,(inferred) Country of the address,object,US,Geographic information - expected to be constant,4.9% missing; 2 unique values
+image_count,(inferred) Number of images in the advert,int64,20,Listing-quality field - exists only after the advert is written; not used,0.0% missing; 25 unique values
+image_urls,(inferred) Web addresses of all images,object,https://images.craigslist.org/00N0N_aBzbdTBI4cO_0e,Administrative / media field - not a predictor,"1.2% missing; 189,472 unique values"
+delivery_available,(inferred) Whether delivery is offered (0/1),int64,0,Listing field - not used,0.0% missing; 2 unique values
+odometer_broken,(inferred) Flag: odometer reported broken (0/1),int64,0,Possible quality flag for odometer - investigate,0.0% missing; 2 unique values
+odometer_rolled_over,(inferred) Flag: odometer rolled over (0/1),int64,0,Possible quality flag for odometer - investigate,0.0% missing; 2 unique values
+monthly_payment,(inferred) Monthly payment offered (mostly empty),object,$187,Mostly empty - not used,98.0% missing; 464 unique values
+other_attributes,(inferred) Additional attributes stored as text,object,cryptocurrency ok,Optional text field - not used,98.7% missing; 1 unique values

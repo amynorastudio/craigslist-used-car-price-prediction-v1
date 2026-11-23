@@ -1,0 +1,12 @@
+{
+  "DATA_COLLECTION_YEAR": 2026,
+  "PRICE_MAX_PLAUSIBLE": 1000000,
+  "PRICE_LOW_REVIEW": 500,
+  "YEAR_MIN_VALID": 1900,
+  "ODOMETER_MAX_PLAUSIBLE": 1000000,
+  "records_raw": 295451,
+  "records_cleaned": 240186,
+  "duplicates_removed": 0,
+  "price_records_excluded": 10361,
+  "repeated_adverts_removed": 44904
+}

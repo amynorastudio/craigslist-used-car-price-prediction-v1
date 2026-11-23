@@ -1,0 +1,56 @@
+Step,Column,Issue,Action,Records/Values Affected,Reason
+1,column names,Inconsistent capitalisation / spaces in names,Renamed to lowercase_with_underscores: {'VIN': 'vin'},1,Consistent names avoid errors and make code easier to read
+2,all columns,Exact duplicate rows,Removed repeated rows (first occurrence kept),0,Identical rows add no information and over-weight some listings
+3,region,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, kept capitalisation, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,manufacturer,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,model,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",8098,"8,094 values reformatted; 4 placeholders set to missing; equivalent labels get one spelling"
+3,condition,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,cylinders,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,fuel,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,title_status,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",610,0 values reformatted; 610 placeholders set to missing; equivalent labels get one spelling
+3,transmission,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,drive,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,type,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",89345,"89,345 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling"
+3,paint_color,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,seller_type,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,state,Spaces / capitalisation / placeholder labels,"Stripped spaces, collapsed repeated spaces, lowercased, placeholder labels -> missing",0,0 values reformatted; 0 placeholders set to missing; equivalent labels get one spelling
+3,other text columns,Blank strings,Blank strings -> missing (none found),0,Blank text is a hidden missing value and must be visible to missing-value analysis
+4,price,Stored as object; 0 entries are not valid numbers,Converted to float64 ($ and commas removed from 0 values); non-numeric entries -> missing,0,Numeric analysis and models require numeric columns
+4,year,Stored as float64; 0 entries are not valid numbers,Converted to float64 ($ and commas removed from 0 values); non-numeric entries -> missing,0,Numeric analysis and models require numeric columns
+4,odometer,Stored as float64; 0 entries are not valid numbers,Converted to float64 ($ and commas removed from 0 values); non-numeric entries -> missing,0,Numeric analysis and models require numeric columns
+4,lat,Stored as float64; 0 entries are not valid numbers,Converted to float64 ($ and commas removed from 0 values); non-numeric entries -> missing,0,Numeric analysis and models require numeric columns
+4,long,Stored as float64; 0 entries are not valid numbers,Converted to float64 ($ and commas removed from 0 values); non-numeric entries -> missing,0,Numeric analysis and models require numeric columns
+4,posting_date,Stored as object; 0 entries could not be parsed,Converted to timezone-aware datetime (UTC); failures -> NaT (kept in raw data),0,Dates must be real datetimes to extract time information
+5,price,Missing or non-numeric target,Record excluded from cleaned data (kept in raw data),0,A supervised model needs a real label; imputing the target would invent data
+5,price,Zero or negative price,Record excluded from cleaned data,10288,A price of 0 or below is not a genuine asking price
+5,price,"Implausibly high price (>= 1,000,000)",Record excluded from cleaned data,73,Values this high are overwhelmingly placeholders or typing errors
+6,year,Year outside 1900-2027,Set to missing,0,Impossible model years are errors; the rest of the record is still useful
+6,odometer,"Negative or above 1,000,000 miles",Set to missing,253,Negative mileage is impossible; extreme values are placeholders/typing errors
+6,lat / long,Coordinates outside the valid US range,Both coordinates set to missing,5,A latitude/longitude pair is only meaningful together; the dataset covers the United States only
+6,state,Not a 2-letter state code,Set to missing,0,Invalid category labels cannot be trusted
+6b,"year, manufacturer, model, odometer, price, state, description","Same advert re-posted (different id/url; identical attributes, price and text)","Removed re-posts, first posting kept",44904,A re-posted advert counts one vehicle several times and would appear in both training and test sets (unrealistically good test scores)
+7,"size, county",Completely empty column(s),Column(s) removed,2,A column with no values carries no information (still present in the raw data)
+7,manufacturer,Missing category,Filled with the explicit category 'unknown',9118,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,model,Missing category,Filled with the explicit category 'unknown',2592,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,condition,Missing category,Filled with the explicit category 'unknown',106159,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,cylinders,Missing category,Filled with the explicit category 'unknown',67737,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,fuel,Missing category,Filled with the explicit category 'unknown',698,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,title_status,Missing category,Filled with the explicit category 'unknown',7017,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,transmission,Missing category,Filled with the explicit category 'unknown',1354,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,drive,Missing category,Filled with the explicit category 'unknown',56957,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,type,Missing category,Filled with the explicit category 'unknown',13146,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,paint_color,Missing category,Filled with the explicit category 'unknown',62055,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,seller_type,Missing category,Filled with the explicit category 'unknown',0,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,state,Missing category,Filled with the explicit category 'unknown',0,Honest label; no statistic is learned from the data (no leakage); missingness may itself be informative
+7,year,Missing values,Left as missing (no imputation in Stage 3),13,Key predictor; any imputation must be fitted on training data only (data-leakage rule)
+7,odometer,Missing values,Left as missing (no imputation in Stage 3),3712,Key predictor; any imputation must be fitted on training data only (data-leakage rule)
+7,lat,Missing values,Left as missing (no imputation in Stage 3),153,Coordinates must not be invented
+7,long,Missing values,Left as missing (no imputation in Stage 3),153,Coordinates must not be invented
+7,vin,Missing values,Left as missing (no imputation in Stage 3),99676,Identifier; not a predictor
+7,description,Missing values,Left as missing (no imputation in Stage 3),2,Optional free text
+7,posting_date,Missing values,Left as missing (no imputation in Stage 3),0,Administrative field
+8,price,"IQR outliers (outside -17,492 to 47,688)",Retained; added column flag_price_iqr_outlier,14100,"Luxury, classic and high-mileage vehicles are genuine observations; flag them for Stage 4 review instead of deleting"
+8,year,"IQR outliers (outside 1,994 to 2,034)",Retained; added column flag_year_iqr_outlier,12391,"Luxury, classic and high-mileage vehicles are genuine observations; flag them for Stage 4 review instead of deleting"
+8,odometer,"IQR outliers (outside -53,449 to 268,869)",Retained; added column flag_odometer_iqr_outlier,3940,"Luxury, classic and high-mileage vehicles are genuine observations; flag them for Stage 4 review instead of deleting"
+8,price,Suspiciously low price (< 500),Retained; added column flag_low_price,2123,Cannot be proven invalid (e.g. cheap project cars) but worth reviewing in Stage 4
+9,columns kept for traceability,Identifier / administrative columns,Retained unchanged (marked 'exclude from features'),6,Needed to trace cleaned records back to the raw data

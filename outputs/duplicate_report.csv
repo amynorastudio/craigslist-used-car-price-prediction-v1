@@ -1,0 +1,10 @@
+Check,Records Identified,% of Records,Decision
+Exact duplicate rows (all columns identical),0,0.0,REMOVE (keep first occurrence)
+Duplicate id values (rows beyond the first),0,0.0,Exact copies removed; others investigated
+Duplicate id but rows NOT identical,0,0.0,KEEP and document (cannot be confirmed as duplicates)
+Duplicate listing url (non-missing),0,0.0,Informational
+Duplicate VIN (non-missing),84239,28.512,KEEP - dealers may re-list; VIN text can be mistyped
+"Confirmed re-posted adverts (same attributes, price AND advert text; not exact copies)",47312,16.013,REMOVE (keep first posting)
+"Similar listings (same attributes and price, different text)",39706,13.439,KEEP - not confirmed as the same advert
+Exact duplicates ACTUALLY removed in cleaning,0,0.0,Executed in Section 13
+Re-posted adverts ACTUALLY removed in cleaning,44904,15.198,Executed in Section 13

@@ -1,0 +1,11 @@
+Feature,Definition,Business reasoning,Available at prediction time,Status
+vehicle_age,REFERENCE_YEAR - year (clipped at 0),Age drives depreciation,Yes,Used in model
+miles_per_year,"odometer / max(vehicle_age, 1)",Usage intensity,Yes,Used in model
+cylinders_num,number extracted from the cylinders text,Engine-size proxy,Yes,Used in model
+is_luxury_brand,manufacturer in fixed luxury list,Brand tier,Yes,Used in model
+is_electrified,fuel is electric or hybrid,Powertrain type,Yes,Used in model
+title_issue,title status not clean/unknown,Branded titles lose value,Yes,Used in model
+state_region,Census region of the state,Reduces 50 states to 4 regions,Yes,Used in model
+description_length,characters in the advert text,Effort/detail of the seller,No,Exploration only
+has_vin,VIN present,Seller transparency,No,Exploration only
+posting_dayofweek,weekday of the posting,Timing effects,No,Exploration only

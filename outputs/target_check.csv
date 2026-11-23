@@ -1,0 +1,4 @@
+Business target (Stage 1),Goal,Achieved on test set,Target met?
+R-squared (dollar scale),>= 0.75,0.676,No
+Median absolute percentage error (%),<= 20.0,18.673,Yes
+Predictions within 20% of the asking price (%),>= 55.0,52.688,No

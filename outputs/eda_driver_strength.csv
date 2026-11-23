@@ -1,0 +1,18 @@
+Variable,Kind,Strength
+odometer,numeric (|Spearman rho|),0.5512745552719227
+year,numeric (|Spearman rho|),0.5078745275770157
+model,categorical (eta-squared),0.44974132277074846
+long,numeric (|Spearman rho|),0.18582425831439894
+condition,categorical (eta-squared),0.09854308053510649
+seller_type,categorical (eta-squared),0.09455672609221497
+type,categorical (eta-squared),0.07996662534224515
+fuel,categorical (eta-squared),0.07033995021306082
+manufacturer,categorical (eta-squared),0.06260563199274378
+region,categorical (eta-squared),0.05967704726960791
+drive,categorical (eta-squared),0.052814008263947394
+lat,numeric (|Spearman rho|),0.04141649642897975
+cylinders,categorical (eta-squared),0.03761471616416165
+state,categorical (eta-squared),0.03633072270622326
+paint_color,categorical (eta-squared),0.014445925113498887
+title_status,categorical (eta-squared),0.006362313316035777
+transmission,categorical (eta-squared),0.003451705864686296

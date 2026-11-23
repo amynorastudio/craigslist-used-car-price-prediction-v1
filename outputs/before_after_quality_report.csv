@@ -1,0 +1,19 @@
+Data Quality Indicator,Before Cleaning,After Cleaning,Explanation
+Number of records,295451,240186,Exact duplicates and records without a valid price were excluded (still available in the raw data).
+Number of columns,41,43,Only completely empty columns were removed; flag columns were added for outliers and low prices.
+Missing values (NaN cells),2081120,852541,"Categorical gaps became 'unknown'; impossible numbers became missing; year, odometer, coordinates, VIN, description keep honest missing values."
+Blank / placeholder text values,613,0,Blank strings and placeholder labels were converted to proper missing values and then treated.
+Exact duplicate rows,0,0,All exact duplicates removed.
+"Re-posted adverts (same attributes, price and text)",47312,0,Re-posts removed (the first posting is kept); the 'before' value also includes exact duplicates.
+Invalid price records,10361,0,"Records with missing, zero, negative or implausibly high price were excluded."
+Invalid year values,0,0,Impossible years were set to missing.
+Invalid mileage values,287,0,Negative or implausibly high mileage was set to missing.
+Invalid coordinates (outside US range),5,0,Invalid coordinate pairs were set to missing.
+Invalid state codes,0,0,Values that are not a 2-letter code were set to missing and then 'unknown'.
+Data type issues (columns with wrong type),2,0,Numeric columns converted to numbers; posting_date converted to datetime.
+Missing values in 'price',0,0,Missing values in this key column before vs after treatment (see Section 7 for the decision).
+Missing values in 'year',26,13,Missing values in this key column before vs after treatment (see Section 7 for the decision).
+Missing values in 'odometer',4036,3712,Missing values in this key column before vs after treatment (see Section 7 for the decision).
+Missing values in 'manufacturer',10792,0,Missing values in this key column before vs after treatment (see Section 7 for the decision).
+Missing values in 'model',3359,0,Missing values in this key column before vs after treatment (see Section 7 for the decision).
+Missing values in 'condition',135490,0,Missing values in this key column before vs after treatment (see Section 7 for the decision).

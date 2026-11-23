@@ -1,0 +1,13 @@
+Measure,Value
+Total records in raw data,295451.0
+Records removed (total),55265.0
+   of which exact duplicates,0.0
+   of which re-posted adverts,44904.0
+   of which invalid / implausible price,10361.0
+Records retained,240186.0
+Retention rate (%),81.29
+Original columns removed,2.0
+Flag columns added,4.0
+Values standardised (text reformatted),97439.0
+Missing values treated (filled with 'unknown'),326833.0
+Invalid values set to missing (non-price),263.0
